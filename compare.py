@@ -42,27 +42,51 @@ def build_stat_dict(key, player):
         player_dict[stat_label] = float(get_specific_stat(p_stats, stat_label))
     return player_dict
 
-# load the api key from the file named api_key
-trn_key = api_key_load("api_key")
-
 # Define the empty player list
-player_list = []
+pl_list = []
 
 # Get 2 players and add them to the player list. Don't except empty inputs.
 print("Enter the 2 players you would like to compare:" )
 while True:
     new_player = input("> ")
     if new_player is not "":
-        player_list.append(new_player)
+        pl_list.append(new_player)
     else:
         print("You didn't enter a player")
-    if len(player_list) == 2:
+    if len(pl_list) == 2:
         break
 
-# Get the stats we want for the players on the player list
-for player in player_list:
-    p_stats = retrieve_stats(trn_key,player,"solo","agg")
-    print("{}: ".format(player))
-    for stat_label in ("K/D Ratio", "Rating", "Win %"):
-        value = get_specific_stat(p_stats, stat_label)
-        print("{}: {}".format(stat_label, value))
+# Get stats dictonary for each player
+player_0 = build_stat_dict(api_key_load("api_key"), pl_list[0])
+player_1 = build_stat_dict(api_key_load("api_key"), pl_list[1])
+
+print('')
+# Display K/D Ratio Comparison
+print("{} has a K/D Ratio of {}.".format(pl_list[0],player_0['K/D Ratio']))
+print("{} has a K/D Ratio of {}.".format(pl_list[1],player_1['K/D Ratio']))
+if player_0['K/D Ratio'] > player_1['K/D Ratio']:
+    print("{} has the better K/D Ratio.".format(pl_list[0]))
+elif player_0['K/D Ratio'] < player_1['K/D Ratio']:
+    print("{} has the better K/D Ratio.".format(pl_list[1]))
+else:
+    print("{} and {} have an equal K/D Ratio.".format(pl_list[0],pl_list[1]))
+print('')
+# Display Win % Comparison
+print("{} has a Win % of {}% ".format(pl_list[0],player_0['Win %']))
+print("{} has a Win % of {}%.".format(pl_list[1],player_1['Win %']))
+if player_0['Win %'] > player_1['Win %']:
+    print("{} has the better Win %.".format(pl_list[0]))
+elif player_0['Win %'] < player_1['Win %']:
+    print("{} has the better Win %.".format(pl_list[1]))
+else:
+    print("{} and {} have an equal Win %.".format(pl_list[0],pl_list[1]))
+print('')
+# Display Skill Rating Comparison
+print("{} has a Skill Rating of {}.".format(pl_list[0],player_0['Rating']))
+print("{} has a Skill Rating of {}.".format(pl_list[1],player_1['Rating']))
+if player_0['Rating'] > player_1['Rating']:
+    print("{} has the better Skill Rating.".format(pla_list[0]))
+elif player_0['Rating'] < player_1['Rating']:
+    print("{} has the better Skill Rating.".format(pl_list[1]))
+else:
+    print("{} and {} have an equal Skill Rating.".format(pl_list[0],pl_list[1]))

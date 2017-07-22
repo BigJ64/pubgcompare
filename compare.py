@@ -85,7 +85,7 @@ print('')
 print("{} has a Skill Rating of {}.".format(pl_list[0],player_0['Rating']))
 print("{} has a Skill Rating of {}.".format(pl_list[1],player_1['Rating']))
 if player_0['Rating'] > player_1['Rating']:
-    print("{} has the better Skill Rating.".format(pla_list[0]))
+    print("{} has the better Skill Rating.".format(pl_list[0]))
 elif player_0['Rating'] < player_1['Rating']:
     print("{} has the better Skill Rating.".format(pl_list[1]))
 else:

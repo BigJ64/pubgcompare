@@ -1,8 +1,7 @@
 from pypubg import core
 import re
 
-# Define our API key here from a file
-
+# Load our API key here from a file
 def api_key_load(file_name):
     try:
         file = open(file_name)
@@ -21,13 +20,15 @@ def api_key_load(file_name):
                 return key
                 file.close()
 
+# Retrieve Stats for a player based on their region and gamemode
+def retrieve_stats(key, player, mode, region):
+    # Setup the api connection
+    pubgapi = core.PUBGAPI(key)
+    # Get the Raw Stats for the player
+    p_stats = pubgapi.player_mode_stats(player, game_mode=mode, game_region=region)
+    return p_stats
+
 trn_key = api_key_load("api_key")
+print(retrieve_stats(trn_key,"akustic","solo","agg"))
 
-# Setup the api connection
-pubgapi = core.PUBGAPI(trn_key)
-
-# Print out the Raw Stats for one player
-print(pubgapi.player_mode_stats("akustic", game_mode="solo", game_region='agg'))
-
-# Print Player Skill
-print(pubgapi.player_skill("akustic", game_mode="solo"))
+#print(pubgapi.player_skill("akustic", game_mode="solo"))

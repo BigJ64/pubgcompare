@@ -35,6 +35,13 @@ def get_specific_stat(player_stats, name):
               if data['label'] == name:
                   return data['value']
 
+def build_stat_dict(key, player):
+    player_dict = {}
+    p_stats = retrieve_stats(key,player,"solo","agg")
+    for stat_label in ("K/D Ratio", "Rating", "Win %"):
+        player_dict[stat_label] = float(get_specific_stat(p_stats, stat_label))
+    return player_dict
+
 # load the api key from the file named api_key
 trn_key = api_key_load("api_key")
 

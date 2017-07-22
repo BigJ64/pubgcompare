@@ -23,9 +23,9 @@ def api_key_load(file_name):
 # Retrieve Stats for a player based on their region and gamemode
 def retrieve_stats(key, player, mode, region):
     # Setup the api connection
-    pubgapi = core.PUBGAPI(key)
+    api = core.PUBGAPI(key)
     # Get the Raw Stats for the player
-    p_stats = pubgapi.player_mode_stats(player, game_mode=mode, game_region=region)
+    p_stats = api.player_mode_stats(player, game_mode=mode, game_region=region)
     return p_stats
 
 # Get a specific stat for a specific player from there stats collection

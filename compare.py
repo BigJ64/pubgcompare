@@ -28,7 +28,16 @@ def retrieve_stats(key, player, mode, region):
     p_stats = pubgapi.player_mode_stats(player, game_mode=mode, game_region=region)
     return p_stats
 
+def get_specific_stat(player_stats, name):
+    for stats in player_stats:
+         for data in stats['Stats']:
+              if data['label'] == name:
+                  return data['value']
+
 trn_key = api_key_load("api_key")
-print(retrieve_stats(trn_key,"akustic","solo","agg"))
+player1 = retrieve_stats(trn_key,"akustic","solo","agg")
+
+for stat in ("K/D Ratio", "Rating", "Win %"):
+    print(get_specific_stat(player1, stat))
 
 #print(pubgapi.player_skill("akustic", game_mode="solo"))

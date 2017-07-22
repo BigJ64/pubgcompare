@@ -28,7 +28,7 @@ def retrieve_stats(key, player, mode, region):
     p_stats = api.player_mode_stats(player, game_mode=mode, game_region=region)
     return p_stats
 
-# Get a specific stat for a specific player from there stats collection
+# Get a specific stat for a specific player from their stats collection
 def get_specific_stat(player_stats, name):
     for stats in player_stats:
          for data in stats['Stats']:

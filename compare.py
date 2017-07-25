@@ -35,6 +35,7 @@ def get_specific_stat(player_stats, name):
               if data['label'] == name:
                   return data['value']
 
+# Build a dictonary of K/D Ratio, Rating, and Win % stats for a specific player
 def build_stat_dict(key, player):
     player_dict = {}
     p_stats = retrieve_stats(key,player,"solo","agg")

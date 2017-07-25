@@ -9,7 +9,7 @@ Provide a simple script interface for comparing two players of Player Unknown's 
 * [TRN PUBG Tracker API Key](https://pubgtracker.com/site-api)
 
 ## Setup
-Once you have a version of Python 3 installed you will need to install the Pypubg Library. Once this library is installed you can clone this repo and place your API key in the api_key file.  The script should be ready to run.
+Once you have a version of Python 3 installed you will need to install the Pypubg Library. Once this library is installed you can clone this repo and place your TRN PUBG Tracker API key in the api_key file.  The script should be ready to run.
 
 ## Usage
 Once setup is complete you can run the compare.py script. It will ask you for two players and then compare their K/D Ratio, Win % and Skill Rating.

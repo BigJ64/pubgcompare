@@ -1,5 +1,8 @@
 # pubgcompare
 
+## Goal
+Provide a simple script interface for comparing two players of Player Unknown's Battlegrounds in their K/D Ratio, Win %, and Skill Rating statistics.
+
 ## Prerequisites
 * [Python 3](https://www.python.org/)
 * [Pypubg Library](https://github.com/lbrictson/pypubg)
